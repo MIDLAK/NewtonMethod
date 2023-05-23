@@ -11,7 +11,7 @@ STEP_X = 0.001
 DOT_COLOR = '#c9007a'
 DOT_COLOR_2 = '#000dc9'
 
-def draw(points: list[Point]) -> None:
+def draw(points: list[Point], R: float, a: float, b: float) -> None:
     '''Отрисовка фукнции и точек'''
     # настройка поля для рисования
     plt.ylabel('y')
@@ -26,11 +26,11 @@ def draw(points: list[Point]) -> None:
     #, adjustable='box'
     ax = plt.gca()
     ax.add_patch(Ellipse(xy=(0.0, 0.0), width=2, height=4, fill=False))
-    ax.add_patch(Ellipse(xy=(1.0, 1.0), width=2, height=2, fill=False))
+    ax.add_patch(Ellipse(xy=(a, b), width=2*R, height=2*R, fill=False))
 
     for i in range(1, len(points)):
-        plt.plot([points[i].x, points[i].y], 
-                 [points[i-1].x, points[i-1].y])
+        #plt.plot([points[i].x, points[i].y], 
+        #         [points[i-1].x, points[i-1].y])
         plt.scatter(points[i].x, points[i].y)
     plt.legend()
     plt.show()

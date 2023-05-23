@@ -7,7 +7,8 @@ inverse_matrix = [[1/3, -1/6],
 
 def f1(point: Point) -> float:
     '''Первое уравнение системы'''
-    return point.x**2 + (point.y**2)/4 - 1
+    print(point)
+    return (point.x**2) + (point.y**2)/4 - 1
 
 
 def f2(point: Point, a, b, R) -> float:
@@ -32,6 +33,10 @@ def main():
     while True:
         counter = counter + 1
 
+        if counter > 1000 or abs(points[-1].x > 1000) or abs(points[-1].y > 1000):
+            print('Решение не найдено')
+            break
+
         # вычисление системы на текущем шаге
         system[0] = f1(points[-1])
         system[1] = f2(points[-1], a, b, R)
@@ -50,7 +55,7 @@ def main():
     x = points[-1].x
     y = points[-1].y
     print(f'Результат x = {x}, y = {y} при точности {eps} достигнут после {counter} шагов')
-    draw(points)
+    draw(points, R=R, a=a, b=b)
 
         
 
