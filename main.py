@@ -50,7 +50,7 @@ def main():
     x = points[-1].x
     y = points[-1].y
     print(f'Результат x = {x}, y = {y} при точности {eps} достигнут после {counter} шагов')
-    #draw(points)
+    draw(points)
 
         
 

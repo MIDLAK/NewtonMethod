@@ -26,11 +26,12 @@ def draw(points: list[Point]) -> None:
     #, adjustable='box'
     ax = plt.gca()
     ax.add_patch(Ellipse(xy=(0.0, 0.0), width=2, height=4, fill=False))
-    ax.add_patch(Ellipse(xy=(1.0, 1.0), width=1, height=1, fill=False))
+    ax.add_patch(Ellipse(xy=(1.0, 1.0), width=2, height=2, fill=False))
 
     for i in range(1, len(points)):
         plt.plot([points[i].x, points[i].y], 
                  [points[i-1].x, points[i-1].y])
+        plt.scatter(points[i].x, points[i].y)
     plt.legend()
     plt.show()
     plt.grid(True)
